@@ -5,18 +5,32 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+
 import org.junit.Test;
 
 import com.google.common.util.concurrent.SimpleTimeLimiter;
 import com.google.common.util.concurrent.TimeLimiter;
 import com.google.common.util.concurrent.UncheckedTimeoutException;
 
-public class TimeOutOfAnyOperationTest {
+public class AnyOperationTimeoutTest {
 
     private static final int DELAY_MS = 50;
     private static final int ENOUGH_MS = 500;
     public static final int NANOS_IN_MS = 1000000;
     private static final int NOT_ENOUGH_MS = 5;
+
+    @Test
+    public void shouldUseFuture() throws Exception {
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        long start = System.nanoTime();
+        Future<String> future = executorService.submit(() -> doSomeHeavyWeightOperation());
+        String result = future.get(ENOUGH_MS, MILLISECONDS);
+        assertTheCallTookBetween(start, DELAY_MS, ENOUGH_MS);
+        assertThat(result, is("done"));
+    }
 
     @Test
     public void shouldUseCallWithTimeout() throws Exception {
