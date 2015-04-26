@@ -1,0 +1,10 @@
+@startuml
+
+skinparam backgroundColor transparent
+skinparam usecaseArrowFontSize 20
+
+(*) -right-> [request] "<size:20>Request Processing</size>"
+"<size:20>Request Processing</size>" -down-> [use] "<size:20>Resources</size>"
+"<size:20>Request Processing</size>" -right-> [retry on failure] "<size:20>Request Processing</size>"
+
+@enduml
