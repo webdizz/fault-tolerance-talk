@@ -1,0 +1,17 @@
+@startuml
+
+skinparam backgroundColor transparent
+skinparam usecaseArrowFontSize 20
+
+(*) --> "<size:20>Closed</size>"
+"<size:20>Closed</size>" -down->[success] (*)
+"<size:20>Closed</size>" -down-> "<size:20>Closed</size>"
+"<size:20>Closed</size>" -right->[fail (threshold reached, \n under threshold)] "<size:20>Open</size>"
+
+"<size:20>Open</size>" -down->[reset timeout] "<size:20>Half Open</size>"
+"<size:20>Open</size>" -down->[call/raise circuit open] "<size:20>Open</size>"
+
+"<size:20>Half Open</size>" -->[success] "<size:20>Closed</size>"
+"<size:20>Half Open</size>" -->[fail] "<size:20>Open</size>"
+
+@enduml
