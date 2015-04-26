@@ -1,0 +1,11 @@
+@startuml
+
+skinparam backgroundColor transparent
+skinparam usecaseArrowFontSize 20
+
+(*) -right-> [request] "<size:20>Fail Fast Guard</size>"
+"<size:20>Fail Fast Guard</size>" -down->[expensive operation] (*)
+     -up-> [uses] "<size:20>Resources</size>"
+"<size:20>Fail Fast Guard</size>" -right-> [check availability] "<size:20>Resources</size>"
+
+@enduml

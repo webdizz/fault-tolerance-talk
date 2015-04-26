@@ -1,0 +1,12 @@
+@startuml
+
+skinparam backgroundColor transparent
+skinparam usecaseArrowFontSize 20
+
+(*) -right-> [lots of requests] "<size:20>Gate Keeper</size>"
+"<size:20>Gate Keeper</size>" -down->[shedded requests] "<img:images/recycle-bin.png>"
+"<size:20>Gate Keeper</size>" -up->[request load data] "<size:20>Monitor</size>"
+"<size:20>Gate Keeper</size>" -right->[         requests        ] "<size:20>Server</size>"
+"<size:20>Monitor</size>" --> [  monitor load  ] "<size:20>Server</size>"
+
+@enduml
