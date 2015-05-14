@@ -1,5 +1,15 @@
+buildscript {
+    repositories { jcenter() }
+    dependencies {
+        classpath 'com.netflix.nebula:gradle-netflixoss-project-plugin:2.2.+'
+        classpath 'com.netflix.nebula:gradle-extra-configurations-plugin:2.2.+'
+    }
+}
+
 allprojects {
     apply plugin: 'java'
+    apply plugin: 'nebula.netflixoss'
+    apply plugin: 'provided-base'
 
     version = '0.1'
 
@@ -12,6 +22,7 @@ allprojects {
     dependencies {
         compile 'com.google.guava:guava:18.0'
         compile 'com.netflix.hystrix:hystrix-core:1.4.7'
+        provided "org.projectlombok:lombok:1.16.4"
         testCompile 'junit:junit:4.12'
     }
 }
