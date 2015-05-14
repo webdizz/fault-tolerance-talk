@@ -1,4 +1,4 @@
-package name.webdizz.jeeconf.fault.tolerance.timeout;
+package name.webdizz.fault.tolerance.timeout;
 
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.HttpGet;
@@ -9,7 +9,7 @@ import org.junit.Test;
 
 public class HttpOperationTimeoutTest {
 
-    public static final int MS = 40;
+    public static final int MS = 50;
 
     @Test(expected = ConnectTimeoutException.class)
     public void shouldMakeSureTimeOutCaughtUsingApacheHttpClient() throws Exception {

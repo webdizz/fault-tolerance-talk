@@ -1,4 +1,4 @@
-package name.webdizz.jeeconf.fault.tolerance.inventory;
+package name.webdizz.fault.tolerance.inventory;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

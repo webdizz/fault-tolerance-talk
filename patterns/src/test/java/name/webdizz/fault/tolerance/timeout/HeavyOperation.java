@@ -1,4 +1,4 @@
-package name.webdizz.jeeconf.fault.tolerance.timeout;
+package name.webdizz.fault.tolerance.timeout;
 
 public interface HeavyOperation {
 

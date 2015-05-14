@@ -1,4 +1,4 @@
-package name.webdizz.jeeconf.fault.tolerance.inventory.domain;
+package name.webdizz.fault.tolerance.inventory.domain;
 
 import java.io.Serializable;
 

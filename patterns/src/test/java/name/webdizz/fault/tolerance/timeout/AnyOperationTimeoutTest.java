@@ -1,16 +1,17 @@
-package name.webdizz.jeeconf.fault.tolerance.timeout;
+package name.webdizz.fault.tolerance.timeout;
 
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
-import static name.webdizz.jeeconf.fault.tolerance.utils.TimeOutAssertion.assertTheCallTookBetween;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 import org.junit.Test;
+
+import name.webdizz.fault.tolerance.utils.TimeOutAssertion;
 
 import com.google.common.util.concurrent.SimpleTimeLimiter;
 import com.google.common.util.concurrent.TimeLimiter;
@@ -29,7 +30,7 @@ public class AnyOperationTimeoutTest {
         long start = System.nanoTime();
         Future<String> future = executorService.submit(() -> doSomeHeavyWeightOperation());
         String result = future.get(ENOUGH_MS, MILLISECONDS);
-        assertTheCallTookBetween(start, DELAY_MS, ENOUGH_MS);
+        TimeOutAssertion.assertTheCallTookBetween(start, DELAY_MS, ENOUGH_MS);
         assertThat(result, is("done"));
     }
 
@@ -40,7 +41,7 @@ public class AnyOperationTimeoutTest {
         String result = timeLimiter.callWithTimeout(
                 () -> doSomeHeavyWeightOperation(), ENOUGH_MS, MILLISECONDS, true);
         assertEquals("done", result);
-        assertTheCallTookBetween(start, DELAY_MS, ENOUGH_MS);
+        TimeOutAssertion.assertTheCallTookBetween(start, DELAY_MS, ENOUGH_MS);
     }
 
     @Test
@@ -50,7 +51,7 @@ public class AnyOperationTimeoutTest {
         HeavyOperation target = () -> doSomeHeavyWeightOperation();
         HeavyOperation proxy = timeLimiter.newProxy(target, HeavyOperation.class, ENOUGH_MS, MILLISECONDS);
         assertEquals("done", proxy.doHeavyWeightOperation());
-        assertTheCallTookBetween(start, DELAY_MS, ENOUGH_MS);
+        TimeOutAssertion.assertTheCallTookBetween(start, DELAY_MS, ENOUGH_MS);
     }
 
     @Test(expected = UncheckedTimeoutException.class)

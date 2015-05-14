@@ -1,4 +1,4 @@
-package name.webdizz.jeeconf.fault.tolerance.utils;
+package name.webdizz.fault.tolerance.utils;
 
 import static org.junit.Assert.assertThat;
 
