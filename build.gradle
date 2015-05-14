@@ -1,15 +1,14 @@
 buildscript {
     repositories { jcenter() }
     dependencies {
-        classpath 'com.netflix.nebula:gradle-netflixoss-project-plugin:2.2.+'
+        classpath 'com.netflix.nebula:nebula-project-plugin:2.2.+'
         classpath 'com.netflix.nebula:gradle-extra-configurations-plugin:2.2.+'
     }
 }
 
 allprojects {
-    apply plugin: 'java'
-    apply plugin: 'nebula.netflixoss'
     apply plugin: 'provided-base'
+    apply plugin: 'java'
 
     version = '0.1'
 
