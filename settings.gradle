@@ -1,0 +1,4 @@
+include 'inventory'
+include 'inventory-client'
+include 'patterns'
+

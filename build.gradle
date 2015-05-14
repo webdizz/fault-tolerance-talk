@@ -1,12 +1,17 @@
-apply plugin: 'java'
+allprojects {
+    apply plugin: 'java'
 
-repositories {
-    mavenLocal()
-    jcenter()
-}
+    version = '0.1'
 
-dependencies {
-    compile 'com.google.guava:guava:18.0'
-    compile 'org.apache.httpcomponents:httpclient:4.4.1'
-    testCompile 'junit:junit:4.12'
+    repositories {
+        mavenLocal()
+        jcenter()
+        mavenCentral()
+    }
+
+    dependencies {
+        compile 'com.google.guava:guava:18.0'
+        compile 'com.netflix.hystrix:hystrix-core:1.4.7'
+        testCompile 'junit:junit:4.12'
+    }
 }
