@@ -9,7 +9,7 @@ import org.junit.Test;
 
 public class HttpOperationTimeoutTest {
 
-    public static final int MS = 100;
+    public static final int MS = 40;
 
     @Test(expected = ConnectTimeoutException.class)
     public void shouldMakeSureTimeOutCaughtUsingApacheHttpClient() throws Exception {
