@@ -16,8 +16,7 @@ public class HttpOperationTimeoutTest {
         int timeout = 1;
         RequestConfig config = RequestConfig.custom()
                 .setConnectTimeout(timeout * MS)
-                .setConnectionRequestTimeout(timeout * MS)
-                .setSocketTimeout(timeout * MS).build();
+                .build();
         CloseableHttpClient client =
                 HttpClientBuilder.create().setDefaultRequestConfig(config).build();
         client.execute(new HttpGet("http://yahoo.com"));
