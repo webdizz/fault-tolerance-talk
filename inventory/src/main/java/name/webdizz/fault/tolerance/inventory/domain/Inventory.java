@@ -12,4 +12,12 @@ public class Inventory implements Serializable {
     @NonNull
     private Product product;
     private long amount;
+
+    public String getKey() {
+        return product.getIdentity() + "@" + store.getIdentity();
+    }
+
+    public static String toKey(final @NonNull Product product, final @NonNull Store store) {
+        return product.getIdentity() + "@" + store.getIdentity();
+    }
 }

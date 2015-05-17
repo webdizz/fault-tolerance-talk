@@ -27,4 +27,5 @@ dependencies {
     compile("com.netflix.hystrix:hystrix-core:1.4.7")
     compile("com.netflix.hystrix:hystrix-javanica:1.4.7")
     compile("com.netflix.archaius:archaius-core:0.6.6")
+    compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.4.5")
 }
