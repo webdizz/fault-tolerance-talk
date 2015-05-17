@@ -1,0 +1,16 @@
+info:
+  component: Inventory Service
+
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.web: DEBUG
+
+spring:
+  redis.host: 192.168.56.71
