@@ -7,4 +7,5 @@ dependencies {
     compile 'com.netflix.feign:feign-httpclient:8.3.0'
     compile 'com.netflix.feign:feign-jackson:8.3.0'
     compile project(':inventory-domain')
+    testCompile 'com.squareup.okhttp:mockwebserver:2.2.0'
 }
