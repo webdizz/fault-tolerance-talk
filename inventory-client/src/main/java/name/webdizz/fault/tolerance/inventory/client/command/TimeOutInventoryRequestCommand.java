@@ -18,7 +18,7 @@ public class TimeOutInventoryRequestCommand extends HystrixCommand<Inventory> {
 
     public TimeOutInventoryRequestCommand(final int timeoutInMillis, final InventoryRequester inventoryRequester, final Store store, final Product product) {
         super(Setter
-                        .withGroupKey(HystrixCommandGroupKey.Factory.asKey("InventoryRequest"))
+                        .withGroupKey(HystrixCommandGroupKey.Factory.asKey(TimeOutInventoryRequestCommand.class.getSimpleName()))
                         .andCommandKey(HystrixCommandKey.Factory.asKey(TimeOutInventoryRequestCommand.class.getSimpleName()))
                         .andCommandPropertiesDefaults(HystrixCommandProperties.Setter()
                                 .withCircuitBreakerForceClosed(true)
