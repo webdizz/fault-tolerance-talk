@@ -1,4 +1,5 @@
-include 'inventory'
-include 'inventory-client'
-include 'patterns'
+include ':inventory',
+        ':inventory-client',
+        ':inventory-domain',
+        ':patterns'
 

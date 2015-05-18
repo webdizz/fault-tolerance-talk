@@ -2,10 +2,14 @@ package name.webdizz.fault.tolerance.inventory.domain;
 
 import java.io.Serializable;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
-import lombok.Value;
 
-@Value
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Inventory implements Serializable {
     @NonNull
     private Store store;

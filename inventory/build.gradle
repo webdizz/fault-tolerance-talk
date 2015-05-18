@@ -3,29 +3,30 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.3.RELEASE")
+        classpath('org.springframework.boot:spring-boot-gradle-plugin:1.2.3.RELEASE')
     }
 }
 
 apply plugin: 'spring-boot'
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web") {
-        exclude module: "spring-boot-starter-tomcat"
+    compile('org.springframework.boot:spring-boot-starter-web') {
+        exclude module: 'spring-boot-starter-tomcat'
     }
-    compile("org.springframework.boot:spring-boot-starter-jetty")
-    compile("org.springframework.boot:spring-boot-starter-actuator")
-    compile("org.springframework.boot:spring-boot-starter-remote-shell")
-    compile("org.springframework.boot:spring-boot-starter-redis")
-    compile("org.springframework.cloud:spring-cloud-starter-hystrix:1.0.1.RELEASE") {
+    compile 'org.springframework.boot:spring-boot-starter-jetty'
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+    compile 'org.springframework.boot:spring-boot-starter-remote-shell'
+    compile 'org.springframework.boot:spring-boot-starter-redis'
+    compile('org.springframework.cloud:spring-cloud-starter-hystrix:1.0.1.RELEASE') {
         exclude module: 'hystrix-core'
         exclude module: 'hystrix-javanica'
     }
-    compile("org.springframework.cloud:spring-cloud-starter-hystrix-dashboard:1.0.1.RELEASE") {
+    compile('org.springframework.cloud:spring-cloud-starter-hystrix-dashboard:1.0.1.RELEASE') {
         exclude module: 'hystrix-core'
     }
-    compile("com.netflix.hystrix:hystrix-core:1.4.7")
-    compile("com.netflix.hystrix:hystrix-javanica:1.4.7")
-    compile("com.netflix.archaius:archaius-core:0.6.6")
-    compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.4.5")
+    compile 'com.netflix.hystrix:hystrix-core:1.4.7'
+    compile 'com.netflix.hystrix:hystrix-javanica:1.4.7'
+    compile 'com.netflix.archaius:archaius-core:0.6.6'
+    compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.4.5'
+    compile project(':inventory-domain')
 }
