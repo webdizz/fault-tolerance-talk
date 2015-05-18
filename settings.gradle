@@ -1,5 +1,6 @@
 include ':inventory-service',
         ':inventory-client',
         ':inventory-domain',
-        ':patterns'
+        ':patterns',
+        ':api-gateway-service'
 

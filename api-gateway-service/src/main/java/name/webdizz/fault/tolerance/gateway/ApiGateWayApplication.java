@@ -1,4 +1,4 @@
-package name.webdizz.fault.tolerance.inventory;
+package name.webdizz.fault.tolerance.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,8 +8,8 @@ import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboar
 @SpringBootApplication
 @EnableHystrixDashboard
 @EnableHystrix
-public class Application {
+public class ApiGateWayApplication {
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(ApiGateWayApplication.class, args);
     }
 }

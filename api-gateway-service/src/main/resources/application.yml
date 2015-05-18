@@ -1,5 +1,5 @@
 info:
-  component: Inventory Service
+  component: Api Gateway Service
 
 endpoints:
   restart:
@@ -12,7 +12,7 @@ logging:
     ROOT: INFO
     org.springframework.web: DEBUG
 
-server.port: 48080
-
-spring:
-  redis.host: 192.168.56.71
+apigateway:
+  inventory:
+    url: http://127.0.0.1:48080
+shell.ssh.port: 48022

@@ -6,6 +6,7 @@ dependencies {
     compile 'com.netflix.archaius:archaius-core:0.6.6'
     compile 'com.netflix.feign:feign-httpclient:8.3.0'
     compile 'com.netflix.feign:feign-jackson:8.3.0'
+    runtime 'com.netflix.feign:feign-slf4j:8.3.0'
     compile project(':inventory-domain')
     testCompile 'com.squareup.okhttp:mockwebserver:2.2.0'
 }
