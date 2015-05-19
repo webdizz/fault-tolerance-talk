@@ -8,18 +8,18 @@ import static name.webdizz.fault.tolerance.inventory.client.InventoryApiTestCons
 
 import org.junit.Test;
 import name.webdizz.fault.tolerance.inventory.client.InventoryRequester;
-import name.webdizz.fault.tolerance.inventory.domain.Inventory;
 
 public class TimeOutInventoryRequestCommandTest {
 
     private static final int TIMEOUT_IN_MILLIS = 10;
     private InventoryRequester inventoryRequester = new InventoryRequester(INVENTORY_SERVICE_URL);
+    private final boolean timedOut = true;
 
     @Test
     public void shouldNotCompleteInventoryRequestDueToTimeout() {
         TimeOutInventoryRequestCommand timeOutInventoryRequestCommand;
         timeOutInventoryRequestCommand = new TimeOutInventoryRequestCommand(inventoryRequester, DEFAULT_STORE, DEFAULT_PRODUCT, TIMEOUT_IN_MILLIS);
-        Inventory inventory = timeOutInventoryRequestCommand.execute();
-        assertThat(timeOutInventoryRequestCommand.isResponseTimedOut(), is(true));
+        boolean request = timeOutInventoryRequestCommand.isResponseTimedOut();
+        assertThat(request, is(timedOut));
     }
 }
