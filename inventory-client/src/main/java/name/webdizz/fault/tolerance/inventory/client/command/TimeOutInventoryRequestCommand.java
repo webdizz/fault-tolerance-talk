@@ -11,7 +11,7 @@ import com.netflix.hystrix.HystrixCommandProperties;
 
 public class TimeOutInventoryRequestCommand extends GenericInventoryRequestCommand {
 
-    public TimeOutInventoryRequestCommand(final int timeoutInMillis, final InventoryRequester inventoryRequester, final Store store, final Product product) {
+    public TimeOutInventoryRequestCommand(final InventoryRequester inventoryRequester, final Store store, final Product product, final int timeoutInMillis) {
         super(Setter
                         .withGroupKey(HystrixCommandGroupKey.Factory.asKey(TimeOutInventoryRequestCommand.class.getSimpleName()))
                         .andCommandKey(HystrixCommandKey.Factory.asKey(TimeOutInventoryRequestCommand.class.getSimpleName()))

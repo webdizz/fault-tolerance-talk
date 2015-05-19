@@ -27,7 +27,7 @@ public class ProductDetailsEndpoint {
     public ProductDetails inventory(@PathVariable("store") String storeId, @PathVariable("product") String productId) {
         Store store = new Store(storeId);
         Product product = new Product(productId);
-        Inventory inventory = new TimeOutInventoryRequestCommand(1000, inventoryRequester, store, product).execute();
+        Inventory inventory = new TimeOutInventoryRequestCommand(inventoryRequester, store, product, 1000).execute();
         return new ProductDetails(inventory);
     }
 

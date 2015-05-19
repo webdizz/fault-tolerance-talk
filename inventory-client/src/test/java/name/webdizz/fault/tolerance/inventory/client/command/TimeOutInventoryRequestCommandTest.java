@@ -18,7 +18,7 @@ public class TimeOutInventoryRequestCommandTest {
     @Test
     public void shouldNotCompleteInventoryRequestDueToTimeout() {
         TimeOutInventoryRequestCommand timeOutInventoryRequestCommand;
-        timeOutInventoryRequestCommand = new TimeOutInventoryRequestCommand(TIMEOUT_IN_MILLIS, inventoryRequester, DEFAULT_STORE, DEFAULT_PRODUCT);
+        timeOutInventoryRequestCommand = new TimeOutInventoryRequestCommand(inventoryRequester, DEFAULT_STORE, DEFAULT_PRODUCT, TIMEOUT_IN_MILLIS);
         Inventory inventory = timeOutInventoryRequestCommand.execute();
         assertThat(timeOutInventoryRequestCommand.isResponseTimedOut(), is(true));
     }
