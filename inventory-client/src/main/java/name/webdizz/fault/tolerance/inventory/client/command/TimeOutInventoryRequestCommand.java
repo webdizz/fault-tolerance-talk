@@ -33,4 +33,9 @@ public class TimeOutInventoryRequestCommand extends HystrixCommand<Inventory> {
     protected Inventory run() throws Exception {
         return inventoryRequester.requestInventoryFor(store, product);
     }
+
+    @Override
+    protected Inventory getFallback() {
+        return new Inventory(new Store("fallback store"), new Product("fallback product"), 0L);
+    }
 }
