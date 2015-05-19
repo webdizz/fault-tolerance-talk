@@ -9,4 +9,5 @@ dependencies {
     runtime 'com.netflix.feign:feign-slf4j:8.3.0'
     compile project(':inventory-domain')
     testCompile 'com.squareup.okhttp:mockwebserver:2.2.0'
+    testCompile 'org.mockito:mockito-core:2.0.8-beta'
 }
