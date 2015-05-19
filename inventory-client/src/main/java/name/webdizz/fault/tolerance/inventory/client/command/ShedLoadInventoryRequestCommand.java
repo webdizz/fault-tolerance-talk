@@ -11,7 +11,7 @@ import com.netflix.hystrix.HystrixCommandProperties;
 
 public class ShedLoadInventoryRequestCommand extends GenericInventoryRequestCommand {
 
-    protected ShedLoadInventoryRequestCommand(final InventoryRequester inventoryRequester, final Store store, final Product product) {
+    public ShedLoadInventoryRequestCommand(final InventoryRequester inventoryRequester, final Store store, final Product product) {
         super(Setter
                 .withGroupKey(HystrixCommandGroupKey.Factory.asKey(ShedLoadInventoryRequestCommand.class.getSimpleName()))
                 .andCommandKey(HystrixCommandKey.Factory.asKey(ShedLoadInventoryRequestCommand.class.getSimpleName()))

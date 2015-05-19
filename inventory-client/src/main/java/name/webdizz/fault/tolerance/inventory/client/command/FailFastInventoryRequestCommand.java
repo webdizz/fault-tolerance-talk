@@ -14,7 +14,7 @@ public class FailFastInventoryRequestCommand extends GenericInventoryRequestComm
 
     private final ResourceHealthIndicator healthIndicator;
 
-    protected FailFastInventoryRequestCommand(final InventoryRequester inventoryRequester, final Store store, final Product product, final ResourceHealthIndicator healthIndicator) {
+    public FailFastInventoryRequestCommand(final InventoryRequester inventoryRequester, final Store store, final Product product, final ResourceHealthIndicator healthIndicator) {
         super(Setter
                 .withGroupKey(HystrixCommandGroupKey.Factory.asKey(FailFastInventoryRequestCommand.class.getSimpleName()))
                 .andCommandKey(HystrixCommandKey.Factory.asKey(FailFastInventoryRequestCommand.class.getSimpleName()))

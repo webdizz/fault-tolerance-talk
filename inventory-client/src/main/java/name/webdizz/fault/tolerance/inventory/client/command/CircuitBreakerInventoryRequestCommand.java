@@ -11,7 +11,7 @@ import com.netflix.hystrix.HystrixCommandProperties;
 
 public class CircuitBreakerInventoryRequestCommand extends GenericInventoryRequestCommand {
 
-    protected CircuitBreakerInventoryRequestCommand(final InventoryRequester inventoryRequester, final Store store, final Product product, final boolean circuitState) {
+    public CircuitBreakerInventoryRequestCommand(final InventoryRequester inventoryRequester, final Store store, final Product product, final boolean circuitState) {
         super(Setter
                 .withGroupKey(HystrixCommandGroupKey.Factory.asKey(CircuitBreakerInventoryRequestCommand.class.getSimpleName()))
                 .andCommandKey(HystrixCommandKey.Factory.asKey(CircuitBreakerInventoryRequestCommand.class.getSimpleName()))
