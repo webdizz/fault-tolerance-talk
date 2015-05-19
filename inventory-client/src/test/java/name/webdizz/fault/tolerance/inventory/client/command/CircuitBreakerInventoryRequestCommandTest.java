@@ -8,17 +8,17 @@ import static name.webdizz.fault.tolerance.inventory.client.InventoryApiTestCons
 
 import org.junit.Test;
 import name.webdizz.fault.tolerance.inventory.client.InventoryRequester;
-import name.webdizz.fault.tolerance.inventory.domain.Inventory;
 
 public class CircuitBreakerInventoryRequestCommandTest {
     private InventoryRequester inventoryRequester = new InventoryRequester(INVENTORY_SERVICE_URL);
     private static final boolean closed = false;
+    private static final boolean open = true;
 
     @Test
     public void shouldExecuteWithCircuitBreakerClosed() throws Exception {
         CircuitBreakerInventoryRequestCommand circuitBreakerInventoryRequestCommand;
-        circuitBreakerInventoryRequestCommand = new CircuitBreakerInventoryRequestCommand(inventoryRequester, DEFAULT_STORE, DEFAULT_PRODUCT, false);
-        Inventory inventory = circuitBreakerInventoryRequestCommand.execute();
+        circuitBreakerInventoryRequestCommand = new CircuitBreakerInventoryRequestCommand(inventoryRequester, DEFAULT_STORE, DEFAULT_PRODUCT, closed);
+        circuitBreakerInventoryRequestCommand.execute();
         boolean circuitBreaker = circuitBreakerInventoryRequestCommand.isCircuitBreakerOpen();
         assertThat(circuitBreaker, is(closed));
     }
