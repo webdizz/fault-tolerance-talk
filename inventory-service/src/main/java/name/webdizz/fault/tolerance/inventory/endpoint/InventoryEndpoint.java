@@ -12,6 +12,7 @@ import name.webdizz.fault.tolerance.inventory.domain.Store;
 import name.webdizz.fault.tolerance.inventory.repository.InventoryRepository;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 
 @RestController
 @RequestMapping("/inventories")
@@ -20,7 +21,7 @@ public class InventoryEndpoint {
     @Autowired
     private InventoryRepository inventoryRepository;
 
-    @HystrixCommand(commandKey = "RequestInventory")
+    @HystrixCommand(commandKey = "RequestInventory", threadPoolKey = "RequestInventoryThreadPool", threadPoolProperties = {@HystrixProperty(name = "hystrix.threadpool.default.coreSize", value = "50")})
     @RequestMapping("/{store}/{product}")
     public Inventory requestInventory(@PathVariable("store") String storeId, @PathVariable("product") String productId) {
         Store store = new Store(storeId);
@@ -28,7 +29,7 @@ public class InventoryEndpoint {
         return inventoryRepository.read(product, store);
     }
 
-    @HystrixCommand(commandKey = "SaveInventory")
+    @HystrixCommand(commandKey = "SaveInventory", threadPoolProperties = {@HystrixProperty(name = "hystrix.threadpool.default.coreSize", value = "50")})
     @RequestMapping(value = "/{store}/{product}", method = RequestMethod.POST)
     public void saveInventory(@PathVariable("store") String storeId, @PathVariable("product") String productId, @RequestBody Long amount) {
         Store store = new Store(storeId);
