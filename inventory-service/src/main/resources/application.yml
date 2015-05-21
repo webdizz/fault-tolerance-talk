@@ -10,7 +10,6 @@ endpoints:
 logging:
   level:
     ROOT: INFO
-    org.springframework.web: WARNING
 
 server.port: 48080
 
