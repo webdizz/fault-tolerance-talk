@@ -215,12 +215,12 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="users" elementType="Argument">
             <stringProp name="Argument.name">users</stringProp>
-            <stringProp name="Argument.value">20</stringProp>
+            <stringProp name="Argument.value">19</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="loop" elementType="Argument">
             <stringProp name="Argument.name">loop</stringProp>
-            <stringProp name="Argument.value">10000</stringProp>
+            <stringProp name="Argument.value">1000</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -245,7 +245,7 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="gateway_host" elementType="Argument">
             <stringProp name="Argument.name">gateway_host</stringProp>
-            <stringProp name="Argument.value">ft.api-gateway.dev</stringProp>
+            <stringProp name="Argument.value">127.0.0.1</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="gateway_port" elementType="Argument">
@@ -260,7 +260,7 @@
           </elementProp>
           <elementProp name="inventory_host" elementType="Argument">
             <stringProp name="Argument.name">inventory_host</stringProp>
-            <stringProp name="Argument.value">ft.inventory.dev</stringProp>
+            <stringProp name="Argument.value">127.0.0.1</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="inventory_port" elementType="Argument">
