@@ -3,7 +3,7 @@
 actor User
 
 User -> [API Gateway]: Product Details Page
-[API Gateway] -up-> [Product] :" Product Details"
-[API Gateway] -> [Price] : Price information
-[API Gateway] -down-> [Inventory]: " In-stock availability"
+[API Gateway] --> [Price] : Price information
+[API Gateway] --> [Product] :" Product Details"
+[API Gateway] --> [Inventory]: " In-stock availability"
 @enduml
