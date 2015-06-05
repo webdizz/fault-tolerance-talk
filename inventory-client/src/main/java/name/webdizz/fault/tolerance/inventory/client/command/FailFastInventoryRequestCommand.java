@@ -29,12 +29,12 @@ public class FailFastInventoryRequestCommand extends GenericInventoryRequestComm
         if (healthIndicator.isHealthy()) {
             return inventoryRequester.requestInventoryFor(store, product);
         } else {
-            throw new ResourceIsNotInAgooShapeException();
+            throw new ResourceIsNotInAgoodShapeException();
         }
     }
 
-    private static class ResourceIsNotInAgooShapeException extends RuntimeException {
-        public ResourceIsNotInAgooShapeException() {
+    private static class ResourceIsNotInAgoodShapeException extends RuntimeException {
+        public ResourceIsNotInAgoodShapeException() {
             super("Resource is not in a good shape so please fail fast");
         }
     }
